@@ -1,68 +1,117 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dice Roller</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #f5f5f5;
-            padding-top: 100px;
-        }
+<title>Salon Service Roller</title>
 
-        h1 {
-            font-size: 50px;
-        }
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #f8e8ff);
+    text-align: center;
+    padding: 50px 20px;
+    color: #333;
+}
 
-        #dice {
-            font-size: 100px;
-            margin: 30px;
-        }
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
 
-        button {
-            font-size: 25px;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            background: black;
-            color: white;
-        }
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
 
-        button:hover {
-            background: #333;
-        }
-    </style>
+.subtitle {
+    font-size: 18px;
+    color: #777;
+}
+
+#service {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 50px 10px;
+    min-height: 50px;
+}
+
+button {
+    background: #111;
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#again {
+    display: none;
+    margin-top: 15px;
+    background: #777;
+}
+</style>
 </head>
 
 <body>
 
-    <h1>🎲 Dice Roller</h1>
+<div class="container">
 
-    <div id="dice">⚀</div>
+<h1>🎲 Salon Service Roller</h1>
 
-    <button onclick="rollDice()">ROLL DICE</button>
+<p class="subtitle">
+Let the dice choose your service today!
+</p>
 
-    <script>
-        function rollDice() {
+<div id="service">
+✨ Ready?
+</div>
 
-            const diceFaces = [
-                "⚀",
-                "⚁",
-                "⚂",
-                "⚃",
-                "⚄",
-                "⚅"
-            ];
+<button onclick="rollService()">
+🎲 ROLL
+</button>
 
-            const randomNumber =
-                Math.floor(Math.random() * 6);
+<button id="again" onclick="rollService()">
+ROLL AGAIN
+</button>
 
-            document.getElementById("dice").innerText =
-                diceFaces[randomNumber];
-        }
-    </script>
+</div>
+
+<script>
+
+const services = [
+    "💇 Haircut",
+    "💆 Nail Polish",
+    "✨ Gel Polish",
+    "🎨 Foot Massage",
+    "💅 Manicure",
+    "🦶 Stick On Nails",
+    "💆 Head Massage",
+    "💎 Gel Polish",
+
+];
+
+function rollService() {
+
+    const service =
+        services[Math.floor(Math.random() * services.length)];
+
+    document.getElementById("service").innerText = service;
+
+    document.getElementById("again").style.display = "inline-block";
+}
+
+</script>
 
 </body>
 </html>
